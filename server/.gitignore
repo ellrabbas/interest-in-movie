@@ -1,3 +1,9 @@
-node_modules
+# dependencies
+/node_modules
+/api
+
+# production
+/build
+
+# misc
 .env
-api
