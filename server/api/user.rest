@@ -1,0 +1,16 @@
+### Create New User
+POST http://localhost:8095/api/users
+Content-Type: application/json
+
+{
+    "firstName":"Elmar",
+    "lastName":"Abbasov",
+    "email":"ellrabbas@gmail.com",
+    "username":"ellrabbas",
+    "password":"Pro247!!",
+    "confirmPassword":"Pro247!!"
+}
+
+
+### GET All users 
+GET http://localhost:8095
