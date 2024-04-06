@@ -1,11 +1,9 @@
-const express = require('express');
-const cors = require('cors');
-require('dotenv').config();
-const connectDB = require('./config/db');
-const errorHandler = require('./middleware/errorMiddleware');
-const { authenticationToken } = require('./middleware/Auth');
-
-
+const express = require("express");
+const cors = require("cors");
+require("dotenv").config();
+const connectDB = require("./config/db");
+const errorHandler = require("./middleware/errorMiddleware");
+const { authenticationToken } = require("./middleware/Auth");
 
 const app = express();
 app.use(cors());
@@ -13,15 +11,13 @@ app.use(express.json());
 
 connectDB();
 
-app.get('/', (req, res) => {
-    res.send('API is running');
+app.get("/", (req, res) => {
+    res.send("API is running");
 });
 
+const userRouter = require("./routes/UsersRouter");
 
-const userRouter = require('./routes/UsersRouter');
-
-
-app.use('/api/users', userRouter);
+app.use("/api/users", userRouter);
 
 app.use(errorHandler, authenticationToken);
 

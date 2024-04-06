@@ -26,15 +26,6 @@ const userSchema = new mongoose.Schema(
             required: [true, 'Please, enter your password'],
             minlength: [6, 'Password must be at least 6 characters long']
         },
-        confirmPassword: {
-            type: String,
-            validate: {
-                validator: function (value) {
-                    return value === this.password;
-                },
-                message: 'Passwords do not match'
-            }
-        },
         image: {
             type: String
         },

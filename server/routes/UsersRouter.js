@@ -1,16 +1,36 @@
-const express = require('express');
-const { registerUser, loginUser, updatedUser, deleteUser, changePassword } = require('../controllers/UserController');
-const { authenticationToken } = require('../middleware/Auth');
+const express = require("express");
+const {
+    updatedUser,
+    changePassword,
+    getAllLikedMovies,
+    addLikedMovie,
+    deleteLikedMovie,
+    deleteAccount,
+} = require("../controllers/UserController");
+const { authenticationToken, admin } = require("../middleware/Auth");
+const { registerUser, loginUser } = require("../controllers/AuthController");
+const { getUsers, deleteUser } = require("../controllers/AdminController");
 const router = express.Router();
 
+
 // ******** PUBLIC ROUTES ********
-router.post('/', registerUser);
-router.post('/login', loginUser);
+router.post("/", registerUser);
+router.post("/login", loginUser);
 
 
 // ******** PRIVATE ROUTES ********
-router.put('/', authenticationToken, updatedUser);
-router.delete('/', authenticationToken, deleteUser);
-router.put('/password', authenticationToken, changePassword);
+router.put("/", authenticationToken, updatedUser);
+router.delete("/", authenticationToken, deleteAccount);
+router.put("/password", authenticationToken, changePassword);
+
+router.get("/favorites", authenticationToken, getAllLikedMovies);
+router.post("/favorites", authenticationToken, addLikedMovie);
+router.delete("/favorites", authenticationToken, deleteLikedMovie);
+
+
+// ******** ADMIN ROUTES ********
+router.get("/", authenticationToken, admin, getUsers);
+router.delete("/:id", authenticationToken, admin, deleteUser);
+
 
 module.exports = router;

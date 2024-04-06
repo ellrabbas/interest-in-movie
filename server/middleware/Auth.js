@@ -9,6 +9,7 @@ const generateToken = (id) => {
     });
 };
 
+
 const authenticationToken = expressAsyncHandler(async (req, res, next) => {
     let token;
 
@@ -31,4 +32,15 @@ const authenticationToken = expressAsyncHandler(async (req, res, next) => {
     }
 });
 
-module.exports = { generateToken, authenticationToken };
+
+const admin = (req, res, next) => {
+
+    if (req.user && req.user.isAdmin) {
+        next();
+    } else {
+        res.status(401);
+        throw new Error("You are not authorized to access like admin");
+    }
+};
+
+module.exports = { generateToken, authenticationToken, admin };
