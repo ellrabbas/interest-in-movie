@@ -16,8 +16,10 @@ app.get("/", (req, res) => {
 });
 
 const userRouter = require("./routes/UsersRouter");
+const movieRouter = require("./routes/MoviesRouter");
 
 app.use("/api/users", userRouter);
+app.use("/api/movies", movieRouter);
 
 app.use(errorHandler, authenticationToken);
 

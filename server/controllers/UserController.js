@@ -100,13 +100,14 @@ const getAllLikedMovies = asyncHandler(async (req, res) => {
 // Add movie to liked movies
 const addLikedMovie = asyncHandler(async (req, res) => {
 
+    const { movieId } = req.body;
     try {
 
         const user = await User.findById(req.user._id);
 
         if (user) {
 
-            if (user.isMovieLiked.includes(movieId)) {
+            if (user.likedMovies.includes(movieId)) {
                 res.status(400);
                 throw new Error("Movie already liked");
             }
@@ -117,30 +118,6 @@ const addLikedMovie = asyncHandler(async (req, res) => {
         } else {
             res.status(404);
             throw new Error("Movie not found");
-        }
-    } catch (error) {
-        res.status(400).json({ message: error.message });
-    }
-});
-
-// Delete movie from liked movies
-
-const deleteLikedMovie = asyncHandler(async (req, res) => {
-    try {
-        const user = await User.findById(req.user._id);
-        if (user) {
-            const index = user.likedMovies.indexOf(movieId);
-            if (index > -1) {
-                user.likedMovies.splice(index, 1);
-                await user.save();
-                res.json({ message: "Movie deleted from liked movies successfully" });
-            } else {
-                res.status(404);
-                throw new Error("Movie not found");
-            }
-        } else {
-            res.status(404);
-            throw new Error("User not found");
         }
     } catch (error) {
         res.status(400).json({ message: error.message });
@@ -172,6 +149,5 @@ module.exports = {
     changePassword,
     getAllLikedMovies,
     addLikedMovie,
-    deleteLikedMovie,
     deleteAllLikedMovies
 };

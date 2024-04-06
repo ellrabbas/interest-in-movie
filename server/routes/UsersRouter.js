@@ -1,11 +1,11 @@
 const express = require("express");
 const {
     updatedUser,
+    deleteAccount,
     changePassword,
     getAllLikedMovies,
     addLikedMovie,
-    deleteLikedMovie,
-    deleteAccount,
+    deleteAllLikedMovies
 } = require("../controllers/UserController");
 const { authenticationToken, admin } = require("../middleware/Auth");
 const { registerUser, loginUser } = require("../controllers/AuthController");
@@ -25,7 +25,7 @@ router.put("/password", authenticationToken, changePassword);
 
 router.get("/favorites", authenticationToken, getAllLikedMovies);
 router.post("/favorites", authenticationToken, addLikedMovie);
-router.delete("/favorites", authenticationToken, deleteLikedMovie);
+router.delete("/favorites", authenticationToken, deleteAllLikedMovies);
 
 
 // ******** ADMIN ROUTES ********
@@ -34,3 +34,4 @@ router.delete("/:id", authenticationToken, admin, deleteUser);
 
 
 module.exports = router;
+
