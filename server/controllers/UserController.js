@@ -125,7 +125,6 @@ const addLikedMovie = asyncHandler(async (req, res) => {
 });
 
 // Delete all liked movies
-
 const deleteAllLikedMovies = asyncHandler(async (req, res) => {
     try {
         const user = await User.findById(req.user._id);

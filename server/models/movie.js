@@ -1,5 +1,27 @@
 const mongoose = require('mongoose');
 
+
+const reviewSchema = new mongoose.Schema(
+    {
+        userName: {
+            type: mongoose.Schema.Types.String,
+            ref: 'User',
+            required: true
+        },
+        userImage: { type: String },
+        rating: { type: Number, required: true },
+        comment: { type: String, required: true },
+        userId: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'User',
+            required: true
+        }
+    },
+    {
+        timestamps: true,
+    }
+);
+
 const movieSchema = new mongoose.Schema(
     {
         userId: {
@@ -52,10 +74,7 @@ const movieSchema = new mongoose.Schema(
             required: true,
             default: 0
         },
-        reviews: {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: 'Review'
-        },
+        reviews: [reviewSchema],
         casts: [
             {
                 name: { type: String, required: true },
