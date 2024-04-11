@@ -17,9 +17,13 @@ app.get("/", (req, res) => {
 
 const userRouter = require("./routes/UsersRouter");
 const movieRouter = require("./routes/MoviesRouter");
+const categoryRouter = require("./routes/CategoriesRouter");
+const artistRouter = require("./routes/ArtistRouter");
 
 app.use("/api/users", userRouter);
 app.use("/api/movies", movieRouter);
+app.use("/api/categories", categoryRouter);
+app.use("/api/artists", artistRouter);
 
 app.use(errorHandler, authenticationToken);
 

@@ -1,5 +1,6 @@
 const asyncHandler = require("express-async-handler");
 const Movie = require("../models/movie");
+const Artist = require("../models/artist");
 const MoviesData = require("../Data/MovieData");
 
 // ******** PUBLIC CONTROLLERS ********
@@ -8,7 +9,65 @@ const MoviesData = require("../Data/MovieData");
 // insert all movies to the database
 const importedMovies = asyncHandler(async (req, res) => {
     await Movie.deleteMany({});
-    const movies = await Movie.insertMany(MoviesData);
+    await Artist.deleteMany({});
+
+
+    const allArtists = [];
+
+
+
+    MoviesData.forEach(movie => {
+        movie.casts.forEach(cast => {
+            if (!allArtists.some(artist => artist.fullName === cast.fullName)) {
+                allArtists.push(cast);
+            }
+        });
+        movie.directors.forEach(director => {
+            if (!allArtists.some(artist => artist.fullName === director.fullName)) {
+                allArtists.push(director);
+            }
+        });
+    });
+
+
+
+    const createdArtists = await Promise.all(allArtists.map(async artistData => {
+        const artist = new Artist({
+            ...artistData,
+            movies: []
+        });
+        return await artist.save();
+    }));
+
+
+    const moviesWithArtistIds = MoviesData.map(movie => {
+        const casts = movie.casts.map(cast => {
+            const createdArtist = createdArtists.find(artist => artist.fullName === cast.fullName);
+            return createdArtist._id;
+        });
+        const directors = movie.directors.map(director => {
+            const createdArtist = createdArtists.find(artist => artist.fullName === director.fullName);
+            return createdArtist._id;
+        });
+
+        return {
+            ...movie,
+            casts,
+            directors
+        };
+    });
+
+
+    const movies = await Movie.insertMany(moviesWithArtistIds);
+
+    for (const artist of createdArtists) {
+        const artistMovies = movies.filter(movie => {
+            return movie.casts.includes(artist._id) || movie.directors.includes(artist._id);
+        }).map(movie => movie._id);
+
+        await Artist.findByIdAndUpdate(artist._id, { movies: artistMovies });
+    }
+
     res.status(200).json(movies);
 });
 
@@ -52,7 +111,6 @@ const getMovies = asyncHandler(async (req, res) => {
 const getMovieById = asyncHandler(async (req, res) => {
     try {
         const movie = await Movie.findById(req.params.id);
-
         if (movie) {
             res.status(200).json(movie);
         } else {

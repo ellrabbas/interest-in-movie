@@ -75,10 +75,16 @@ const movieSchema = new mongoose.Schema(
             default: 0
         },
         reviews: [reviewSchema],
+        directors: [
+            {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: 'Artist'
+            }
+        ],
         casts: [
             {
-                name: { type: String, required: true },
-                image: { type: String, required: true }
+                type: mongoose.Schema.Types.ObjectId,
+                ref: 'Artist'
             }
         ]
     },
