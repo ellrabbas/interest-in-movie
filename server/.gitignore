@@ -1,6 +1,7 @@
 # dependencies
 /node_modules
 /api
+/config/firebaseStorage.js
 
 # production
 /build
