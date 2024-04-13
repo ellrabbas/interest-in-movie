@@ -8,11 +8,11 @@ import Promos from '../Components/Home/Promos';
 function Home() {
     return (
         <Layout>
-            <Banner />
-            <div className='container mx-auto min-h-screen px-2 mb-6 text-text'>
+            <div className='min-h-screen mb-6 text-text'>
+                <Banner />
                 <PopularMovies />
-                <TopRated />
                 <Promos />
+                <TopRated />
             </div>
         </Layout>
     )

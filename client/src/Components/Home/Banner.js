@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 
 function Banner() {
     return (
-        <div className="w-full relative">
+        <div className="w-full relative text-white">
             <Swiper
                 modules={[Autoplay]}
                 slidesPerView={1}

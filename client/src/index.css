@@ -46,12 +46,4 @@ button:focus {
     @apply transition duration-300 ease-in;
   }
 
-  .hovers {
-    @apply hidden;
-  }
-
-  .hovered:hover .hovers {
-    @apply flex-col
-  }
-
 }

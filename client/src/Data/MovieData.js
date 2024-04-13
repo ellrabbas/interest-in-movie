@@ -11,7 +11,7 @@ export const Movies = [
         year: "1994",
         time: 142,
         video: "",
-        rate: 9.3,
+        rate: 1.3,
     },
     {
         name: "The Godfather",
