@@ -8,7 +8,7 @@ import { FaBoltLightning } from "react-icons/fa6";
 function About() {
     return (
         <Layout>
-            <div className="min-height-screen mb-6">
+            <div className="min-height-screen mx-auto mb-6">
                 <Head title="About our page" />
                 <div className="xl:py-20 py-10 px-4 text-text">
                     <div className="grid grid-flow-row grid-cols-1 gap-4 xl:gap-16 items-center">

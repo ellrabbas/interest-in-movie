@@ -1,5 +1,5 @@
 import React from 'react';
-import MobileApp from '../../assets/f9c24100-0434-11eb-851f-b88860f2f90c-removebg-preview.png';
+import MobileApp from '../../Assets/f9c24100-0434-11eb-851f-b88860f2f90c-removebg-preview.png';
 
 function Promos() {
     return (

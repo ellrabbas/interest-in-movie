@@ -6,6 +6,7 @@ import "swiper/css/autoplay";
 import { Movies } from "../../Data/MovieData";
 import FlexMovieItem from "../FlexMovieItems";
 import { Link } from "react-router-dom";
+import { FaPlay } from "react-icons/fa";
 
 function Banner() {
     return (
@@ -33,8 +34,11 @@ function Banner() {
                                 <FlexMovieItem movie={movie} />
                             </div>
                             <div className="flex gap-5 items-center">
-                                <Link to={`/movie/${movie.name}`} className="bg-dry hover:text-subMain transitions px-8 py-3 rounded font-bold sm:text-sm text-xs">
-                                    Watch Now
+                                <Link to={`/movies/${movie.name}`} >
+                                    <button className="flex items-center gap-4 bg-dry hover:text-subMain transitions px-4 py-3 rounded-md font-bold sm:text-sm text-xs">
+                                        Watch Now
+                                        <FaPlay />
+                                    </button>
                                 </Link>
                             </div>
                         </div>

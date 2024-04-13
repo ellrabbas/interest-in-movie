@@ -1,5 +1,5 @@
 import React from 'react';
-import AboutImg from '../assets/banner-1155437_960_720.webp'
+import AboutImg from '../Assets/banner-1155437_960_720.webp'
 
 function Head({ title }) {
     return (

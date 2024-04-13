@@ -32,14 +32,14 @@ function TopRated() {
                 >
                     {Movies.map((movie, index) => (
                         <SwiperSlide key={index}>
-                            <div className='cursor-pointer w-[140px] md:w-[180px] lg:w-[220px] xl:w-[260px] 2xl:w-[300px] shadow-md border border-stone-300 hovered rounded-lg overflow-hidden relative'>
-                                <img src={movie.titleImage} alt={movie.name} className='w-full h-[190px] md:h-[250px] lg:h-[310px] xl:h-[370px] 2xl:h-[430px] object-center rounded-lg' />
+                            <div className='cursor-pointer w-[140px] md:w-[180px] lg:w-[220px] xl:w-[260px] xxl:w-[300px] shadow-md border border-stone-300 hovered rounded-lg overflow-hidden relative'>
+                                <img src={movie.titleImage} alt={movie.name} className='w-full h-[190px] md:h-[250px] lg:h-[310px] xl:h-[370px] xxl:h-[430px] object-center rounded-lg' />
                                 <div className='px-4 text-center absolute bg-black bg-opacity-50 top-0 left-0 right-0 bottom-0 transitions opacity-0 hover:opacity-100'>
                                     <button className='w-12 h-12 flex-column transitions hover:bg-dry rounded-full bg-white bg-opacity-40 text-white relative top-2 -right-[60%] md:-right-[70%] lg:-right-[80%]'>
                                         <FaRegHeart />
                                     </button>
                                     <div className='flex-column relative top-[20%] lg:top-[50%]'>
-                                        <Link to={`/movie/${movie.name}`} className='font-semibold text-white text-xl traucated line-clamp-2 text-center'>
+                                        <Link to={`/movies/${movie.name}`} className='font-semibold text-white text-xl traucated line-clamp-2 text-center'>
                                             {movie.name}
                                         </Link>
                                         <div className='flex gap-2 text-star'>

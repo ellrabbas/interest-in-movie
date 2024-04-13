@@ -31,7 +31,7 @@ function Contact() {
     ];
     return (
         <Layout>
-            <div className="min-height-screen mb-6">
+            <div className="min-height-screen mx-auto mb-6">
                 <Head title="Contact Us" />
                 <div className="mx-5 grid md:grid-cols-2 gap-6 lg:my-20 my-10 lg:grid-cols-3 xl:gap-8 text-white">
                     {

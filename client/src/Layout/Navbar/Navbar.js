@@ -29,12 +29,15 @@ function Navbar() {
                     </form>
                 </div>
                 {/* Menus */}
-                <div className="col-span-3 font-semibold text-lg hidden xl:gap-14 2xl:gap-20 justify-between lg:flex xl:justify-end items-center">
+                <div className="col-span-3 font-semibold text-lg hidden xl:gap-14 xxl:gap-20 justify-between lg:flex xl:justify-end items-center">
                     <NavLink to="/movies" className={isHover}>
                         Movies
                     </NavLink>
                     <NavLink to="/login" className={isHover}>
-                        <FaUserAlt className="w-5 h-5" />
+                        <div className="flex gap-2">
+                            <FaUserAlt className="w-5 h-5" />
+                            <span>Login</span>
+                        </div>
                     </NavLink>
                     <NavLink to="/favorite" className={`${isHover} relative`}>
                         <FaRegHeart className="w-5 h-5" />
