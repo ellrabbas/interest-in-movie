@@ -1,6 +1,9 @@
 import React from "react";
 import Layout from "../Layout/Layout";
 import Head from "../Components/Head";
+import { MdGridView, MdLocalMovies } from "react-icons/md";
+import { SlSpeech } from "react-icons/sl";
+import { FaBoltLightning } from "react-icons/fa6";
 
 function About() {
     return (
@@ -29,19 +32,31 @@ function About() {
                         </div>
                         <div className="grid md:grid-cols-2 gap-6 mt-5">
                             <div className="p-8 rounded-lg bg-dry text-white">
-                                <h4 className="text-lg text-center font-bold my-2 ">Monthly Viewership</h4>
+                                <div className="flex-rows gap-2">
+                                    <MdGridView size={20} />
+                                    <h4 className="text-lg text-center font-bold my-2 ">Monthly Viewership</h4>
+                                </div>
                                 <p className="mb-0 leading-7 text-md">Join our community of movie lovers with over 10,000 monthly viewers experiencing the magic of cinema together.</p>
                             </div>
                             <div className="p-8 rounded-lg bg-dry text-white">
-                                <h4 className="text-lg text-center font-bold my-2 ">More than Movies</h4>
+                                <div className="flex-rows gap-2">
+                                    <MdLocalMovies size={20} />
+                                    <h4 className="text-lg text-center font-bold my-2 ">More than Movies</h4>
+                                </div>
                                 <p className="mb-0 leading-7 text-md">Discover exclusive behind-the-scenes content, interviews with filmmakers, and in-depth analysis of your favorite films.</p>
                             </div>
                             <div className="p-8 rounded-lg bg-dry text-white">
-                                <h4 className="text-lg text-center font-bold my-2 ">User Recommendations</h4>
+                                <div className="flex-rows gap-2">
+                                    <SlSpeech size={20} />
+                                    <h4 className="text-lg text-center font-bold my-2 ">User Recommendations</h4>
+                                </div>
                                 <p className="mb-0 leading-7 text-md">Explore curated lists of must-watch films recommended by our community members and expert cinephiles.</p>
                             </div>
                             <div className="p-8 rounded-lg bg-dry text-white">
-                                <h4 className="text-lg text-center font-bold my-2 ">Interactive Features</h4>
+                                <div className="flex-rows gap-2">
+                                    <FaBoltLightning size={20} />
+                                    <h4 className="text-lg text-center font-bold my-2 ">Interactive Features</h4>
+                                </div>
                                 <p className="mb-0 leading-7 text-md">Engage with fellow movie enthusiasts through live discussions, polls, and interactive events hosted regularly on our platform.</p>
                             </div>
                         </div>
