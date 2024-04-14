@@ -19,9 +19,6 @@ function MovieInfo({ movie }) {
                         <h1 className='xl:text-4xl capitalize font-sans font-bold text-2xl'>
                             {movie?.name}
                         </h1>
-                        <div className='flex gap-2 text-star justify-center'>
-                            <RatingStars value={movie.rate} />
-                        </div>
                         <div className='flex justify-center items-center gap-4 font-medium'>
                             <FlexMovieItem movie={movie && movie} />
                             <div className='flex items-center gap-2'>
@@ -37,7 +34,7 @@ function MovieInfo({ movie }) {
                                 Share
                                 <FaShareAlt />
                             </button>
-                            <Link to={movie?.name}>
+                            <Link to={`/watch/${movie?.name}`}>
                                 <button className='bg-dry flex items-center gap-4 text-white hover:text-subMain transitions px-8 py-3 rounded font-bold sm:text-sm text-xs'>
                                     Watch Now
                                     <FaPlay />

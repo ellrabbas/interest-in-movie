@@ -5,7 +5,7 @@ import { FaUserAlt, FaRegHeart } from "react-icons/fa";
 
 function Navbar() {
     const hover = "hover:text-dry transitions text-white";
-    const isHover = ({ isActive }) => isActive ? "text-main" : hover;
+    const isHover = ({ isActive }) => isActive ? "text-dry" : hover;
     return (
         <div className="bg-subMain shadow-md sticky top-0 z-20">
             <div className="container mx-auto py-6 px-2 lg:grid gap-10 grid-cols-7 justify-between items-center">

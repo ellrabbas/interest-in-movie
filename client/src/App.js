@@ -6,6 +6,7 @@ import Contact from './Screens/Contact';
 import NotFound from './Screens/NotFound';
 import MoviesPage from './Screens/MoviesPage';
 import SingleMovie from './Screens/SingleMovie';
+import Watch from './Screens/Watch';
 import "tailwindcss/tailwind.css";
 
 const App = () => {
@@ -16,6 +17,7 @@ const App = () => {
       <Route path="/contact" element={<Contact />} />
       <Route path="/movies" element={<MoviesPage />} />
       <Route path="/movies/:id" element={<SingleMovie />} />
+      <Route path="/watch/:id" element={<Watch />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   )

@@ -34,7 +34,7 @@ function Banner() {
                                 <FlexMovieItem movie={movie} />
                             </div>
                             <div className="flex gap-5 items-center">
-                                <Link to={`/movies/${movie.name}`} >
+                                <Link to={`/watch/${movie.name}`} >
                                     <button className="flex items-center gap-4 bg-dry hover:text-subMain transitions px-4 py-3 rounded-md font-bold sm:text-sm text-xs">
                                         Watch Now
                                         <FaPlay />
