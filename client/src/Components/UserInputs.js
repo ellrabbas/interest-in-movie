@@ -22,3 +22,15 @@ export const Select = ({ label, options, onChange }) => {
         </div>
     )
 };
+
+export const Input = ({ label, type, bg }) => {
+    return (
+        <div className="text-sm w-full">
+            <label className="font-lighter align-middle text-text text-sm md:text-lg">{label}</label>
+            <input
+                required
+                type={type}
+                className={`w-full text-sm text-text py-2 font-semibold border border-t-0 border-x-0 border-b-subMain ${bg ? 'bg-main' : 'bg-slate-500'}`} />
+        </div>
+    )
+};

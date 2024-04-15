@@ -24,7 +24,7 @@ function TopRated() {
                 <Swiper
                     navigation={{ nextEl, prevEl }}
                     slidesPerView={4}
-                    spaceBetween={170}
+                    spaceBetween={150}
                     autoplay={true}
                     speed={1000}
                     loop={true}

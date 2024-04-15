@@ -40,8 +40,8 @@ function MovieInfo({ movie }) {
                                     <FaPlay />
                                 </button>
                             </Link>
-                            <button className='w-10 h-10 flex-column bg-main rounded-full hover:bg-subMain hover:text-main transitions' title='Download'>
-                                <IoCloudDownloadOutline className='w-5 h-5 text-center' />
+                            <button className='w-10 h-10 flex-column text-dry bg-main rounded-full hover:bg-dry hover:text-main transitions' title='Download'>
+                                <IoCloudDownloadOutline className='w-6 h-6 text-center' />
                             </button>
                         </div>
                     </div>

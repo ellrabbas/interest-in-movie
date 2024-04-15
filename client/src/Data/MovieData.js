@@ -1,3 +1,5 @@
+
+
 export const Movies = [
     {
         name: "The Shawshank Redemption",
@@ -10,7 +12,7 @@ export const Movies = [
         language: "English",
         year: "1994",
         time: 142,
-        video: "",
+        video: '/src/Assets/The Shawshank Redemption _ Trailer _ Warner Bros. Entertainment.mp4',
         rate: 1.3,
     },
     {
@@ -24,7 +26,7 @@ export const Movies = [
         language: "English",
         year: "1972",
         time: 175,
-        video: "",
+        video: "src/Assets/THE GODFATHER _ 50th Anniversary Trailer _ Paramount Pictures.mp4",
         rate: 9.2,
     },
     {
@@ -70,7 +72,7 @@ export const Movies = [
         rate: 8.9,
     },
     {
-        name: "The Lord of the Rings: The Return of the King",
+        name: "The Lord of the Rings: The Return of the King ",
         desc: "Gandalf and Aragorn lead the World of Men against Sauron's army to draw his gaze from Frodo and Sam as they approach Mount Doom with the One Ring.",
         titleImage:
             "https://m.media-amazon.com/images/M/MV5BNzA5ZDNlZWMtM2NhNS00NDJjLTk4NDItYTRmY2EwMWZlMTY3XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_.jpg",
@@ -154,3 +156,4 @@ export const Movies = [
         rate: 8.8,
     },
 ];
+
