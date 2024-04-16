@@ -62,8 +62,8 @@ function SideBar({ children }) {
     return (
         <Layout>
             <div className=' text-text  min-h-screen container mx-auto px-2'>
-                <div className=' xl:grid grid-cols-8 gap-10 items-start md:py-12 py-6'>
-                    <div className='col-span-2 xl:mb-0 mb-5 overflow-y-scroll h-[500px] scrollbar-hide'>
+                <div className='xl:grid grid-cols-8 gap-10 items-start md:py-12 py-6'>
+                    <div className='bg-main px-2 py-1 col-span-2 xl:mb-0 mb-5 max-h-screen z-40'>
                         {
                             SideLink.map((item, index) => (
                                 <NavLink to={item.link} key={index} className={Hover}>
@@ -74,7 +74,7 @@ function SideBar({ children }) {
                         }
                     </div>
                     <div
-                        data-aos='fade-up'
+                        data-aos='fade-right'
                         data-aos-duration='800'
                         data-aos-delay='10'
                         data-aos-offset='200'

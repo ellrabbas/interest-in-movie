@@ -48,7 +48,7 @@ function MovieRates({ movie }) {
                         <RaitingStars value={raiting} />
                     </div>
                     <div className='text-sm w-full'>
-                        <Select label="Raiting" options={Ratings} onChange={(e) => setRating(e.target.value)} />
+                        <Select label="Raiting" margin="mr-5" options={Ratings} onChange={(e) => setRating(e.target.value)} />
                     </div>
                     <Message label="Comment" placeholder="Write something" />
                     <button className="self-end bg-dry w-1/3 text-white hover:text-subMain transitions px-4 py-3 rounded-md font-bold sm:text-sm text-xs">

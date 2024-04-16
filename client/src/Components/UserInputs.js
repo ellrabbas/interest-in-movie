@@ -10,11 +10,11 @@ export const Message = ({ label, placeholder }) => {
     )
 };
 
-export const Select = ({ label, options, onChange }) => {
+export const Select = ({ label, options, onChange, margin }) => {
     return (
         <div className="flex gap-4">
-            <label className="mr-5 self-center font-semibold text-text">{label}</label>
-            <select className="bg-dryGray p-3 outline-none rounded-md shadow-md text-text" onChange={onChange}>
+            <label className={`${margin} self-center font-semibold text-text`}>{label}</label>
+            <select className="bg-dryGray p-3 scrollbar-hide outline-none rounded-md shadow-md text-text" onChange={onChange}>
                 {options.map((option, i) => (
                     <option key={i} value={option.value}>{option.title}</option>
                 ))}

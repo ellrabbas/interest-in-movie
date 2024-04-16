@@ -44,7 +44,7 @@ function MovieCasts() {
                         UserData.map((artist, i) => (
                             <SwiperSlide key={i}>
                                 <div className='w-full p-2 pb-5 italic text-md rounded flex-column border-gray-800'>
-                                    <img src={artist.picture} alt={artist.name} className='w-[165px] h-[175px]  rounded-full making-shadow object-cover' />
+                                    <img src={artist.image} alt={artist.name} className='w-[165px] h-[175px]  rounded-full making-shadow object-cover' />
                                     <p className='pt-2 font-semibold'>{artist.name}</p>
                                 </div>
                             </SwiperSlide>

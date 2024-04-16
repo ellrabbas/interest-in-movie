@@ -11,7 +11,7 @@ function Password() {
                 <Input label="New password" type="password" bg={true} />
                 <Input label="Confirm password" type="password" bg={true} />
                 <div className='flex gap-2'>
-                    <button className='flex max-w-fit items-center gap-4 bg-dry text-white hover:text-subMain transitions px-4 py-3 rounded-md font-bold text-sm md:text-md'>
+                    <button className='flex max-w-fit items-center gap-4 bg-main border border-dry text-dry hover:bg-dry hover:text-main transitions px-4 py-3 rounded-md font-bold text-sm md:text-md'>
                         Change Password
                     </button>
                 </div>

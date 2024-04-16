@@ -12,6 +12,11 @@ import Register from './Screens/Register';
 import Account from './Screens/Dashboard/Account';
 import Password from './Screens/Dashboard/Password';
 import FavMovies from './Screens/Dashboard/FavMovies';
+import MovieList from './Screens/Dashboard/Admin/MovieList';
+import Dashboard from './Screens/Dashboard/Admin/Dashboard';
+import Categories from './Screens/Dashboard/Admin/Categories';
+import Users from './Screens/Dashboard/Admin/Users';
+import AddMovie from './Screens/Dashboard/Admin/AddMovie';
 import "tailwindcss/tailwind.css";
 import Aos from 'aos';
 
@@ -30,6 +35,11 @@ const App = () => {
       <Route path="/profile" element={<Account />} />
       <Route path="/password" element={<Password />} />
       <Route path="/favorites" element={<FavMovies />} />
+      <Route path="/movieList" element={<MovieList />} />
+      <Route path="/dashboard" element={<Dashboard />} />
+      <Route path="/categories" element={<Categories />} />
+      <Route path="/users" element={<Users />} />
+      <Route path="/addmovie" element={<AddMovie />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   )

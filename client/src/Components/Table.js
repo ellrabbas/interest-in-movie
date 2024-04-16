@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 function Table({ data, admin }) {
     const [currentPage, setCurrentPage] = useState(1);
-    const [itemsPerPage] = useState(10);
+    const [itemsPerPage] = useState(7);
 
     const Head = "text-xs text-center font-bold px-6 py-4 uppercase";
     const Text =
@@ -34,7 +34,7 @@ function Table({ data, admin }) {
                         <img
                             src={movie.titleImage}
                             alt={movie?.name}
-                            className="w-full h-full rounded-md object-cover"
+                            className="w-full h-full object-cover"
                         />
                     </div>
                 </td>
@@ -184,5 +184,6 @@ function Table({ data, admin }) {
 
     );
 }
+
 
 export default Table;
