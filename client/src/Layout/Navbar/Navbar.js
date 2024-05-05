@@ -1,47 +1,97 @@
-import React from "react";
-import { Link, NavLink } from "react-router-dom";
+import React, { useState } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
 import { RiSearchLine } from "react-icons/ri";
-import { FaUserAlt, FaRegHeart } from "react-icons/fa";
+import { FaRegHeart } from "react-icons/fa";
+import { useSelector } from "react-redux";
+import NoPhoto from "../../Assets/no-image-icon-4.png";
+import Logo from "../../Assets/Logo.png";
 
 function Navbar() {
+    const [search, setSearch] = useState("");
+    const navigate = useNavigate();
+    const { userInfo } = useSelector((state) => state.userLogin);
+    const { likedMovies } = useSelector((state) => state.userGetFavoriteMovies);
     const hover = "hover:text-dry transitions text-white";
-    const isHover = ({ isActive }) => isActive ? "text-dry" : hover;
+    const isHover = ({ isActive }) => (isActive ? "text-dry" : hover);
+
+    const handleSearch = (e) => {
+        e.preventDefault();
+        if (search.trim()) {
+            navigate(`/movies/${search}`);
+            setSearch(search);
+        } else {
+            navigate("/movies");
+        }
+    };
+
     return (
-        <div className="bg-subMain shadow-md sticky top-0 z-50">
+        <div className="bg-subMain shadow-md sticky top-0 z-20">
             <div className="container mx-auto py-6 px-2 lg:grid gap-10 grid-cols-7 justify-between items-center">
                 {/* Logo */}
                 <div className="col-span-1 lg:block hidden">
-                    <Link to="/">
-                        <img
-                            src="https://s3-alpha-sig.figma.com/img/de16/a5ad/d6e33eb262ad45a781efb5b71b9c8c6c?Expires=1713744000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=LWP-LF8SpRKRaB0H2iL03rd9eNy-7Lqyr1yODiHKs9HZVrW2DwXgPt5MLe-n90fGH9Tq2deIwnb1THlthml48TMhwGozxOGNAUKmiQYMQnbyO17f3du9sPHQ7-IHUZOf4JMkJFdL6UFEI7vRerD6zoODEYVpzB3U6frl~C6YIY1dn-Z0ESN37w2jvKcD1Z2VrivciwEk53i9-~3GZTHQb03jQ0mypy9IIMF4p-5ewICC5CJt1~pNJXXkCbg2bqgRQBWEE7VSRZyemxQUydwcJZxzC0r2vkLV0BEgUWnbuM5lsOOLLOAyPHOteVYvvTWFMZA-EZusQfFTXkIDqXJkbA__"
-                            alt="logo"
-                            className="w-full h-14 object-contain"
-                        />
-                    </Link>
+                    <img src={Logo} alt="logo" className="w-full h-14 object-contain" />
                 </div>
                 {/* Search input */}
                 <div className="col-span-3">
-                    <form className="w-full text-sm bg-dryGray flex-btn gap-4 rounded-md">
-                        <button type="submit" className="bg-dry text-white w-12 h-12 flex-column rounded-tl-md rounded-bl-md">
+                    <form
+                        onSubmit={handleSearch}
+                        className="w-full text-sm bg-dryGray flex-btn gap-4 rounded-md"
+                    >
+                        <button
+                            type="submit"
+                            className="bg-dry text-white w-12 h-12 flex-column rounded-tl-md rounded-bl-md"
+                        >
                             <RiSearchLine />
                         </button>
-                        <input type="text" placeholder="Search" className="font-medium placeholder:text-border w-11/12 h-12 bg-transparent border-none px-2 text-black" />
+                        <input
+                            type="search"
+                            value={search}
+                            onChange={(e) => setSearch(e.target.value)}
+                            placeholder="Search"
+                            className="font-medium placeholder:text-border w-11/12 h-12 bg-transparent border-none px-2 text-black"
+                        />
                     </form>
                 </div>
                 {/* Menus */}
                 <div className="col-span-3 font-semibold text-lg hidden xl:gap-14 xxl:gap-20 justify-between lg:flex xl:justify-end items-center">
+                    <NavLink to="/" className={isHover}>
+                        Home
+                    </NavLink>
                     <NavLink to="/movies" className={isHover}>
                         Movies
                     </NavLink>
-                    <NavLink to="/login" className={isHover}>
+                    <NavLink
+                        to={
+                            userInfo?.isAdmin
+                                ? "/dashboard"
+                                : userInfo
+                                    ? "/profile"
+                                    : "/login"
+                        }
+                        className={isHover}
+                    >
                         <div className="flex gap-2">
-                            <FaUserAlt className="w-5 h-5" />
-                            <span>Login</span>
+                            {userInfo ? (
+                                <>
+                                    <img
+                                        src={userInfo?.image ? userInfo?.image : NoPhoto}
+                                        alt={userInfo?.username}
+                                        className="w-8 h-8 bg-main rounded-full border object-cover"
+                                    />
+                                    <span>{userInfo?.username}</span>
+                                </>
+                            ) : (
+                                <>
+                                    <span>Log in</span>
+                                </>
+                            )}
                         </div>
                     </NavLink>
-                    <NavLink to="/favorite" className={`${isHover} relative`}>
+                    <NavLink to="/favorites" className={`${isHover} relative`}>
                         <FaRegHeart className="w-5 h-5" />
-                        <div className="bg-dry text-white absolute w-5 h-5 flex-column rounded-full text-xs -top-3 -right-3">7</div>
+                        <div className="bg-dry text-white absolute w-5 h-5 flex-column rounded-full text-xs -top-3 -right-3">
+                            {likedMovies?.length || 0}
+                        </div>
                     </NavLink>
                 </div>
             </div>

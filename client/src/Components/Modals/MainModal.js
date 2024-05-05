@@ -1,60 +1,43 @@
-import { Dialog, Transition } from '@headlessui/react';
-import React, { Fragment, useRef } from 'react';
+import React, { Fragment, useRef } from "react";
 import { IoCloseSharp } from "react-icons/io5";
 
-function MainModal({ modalOpen, setModalOpen, children }) {
-
+function MainModal({ modalOpen, setModalOpen, children, sizes, width }) {
     const cancelButtonRef = useRef();
+
+    const closeModal = () => {
+        setModalOpen(false);
+    };
 
     return (
         <>
-            <Transition show={modalOpen} as={Fragment} appear>
-                <Dialog
-                    as="div"
-                    className="fixed inset-0 z-30 overflow-y-auto text-center"
-                    initialFocus={cancelButtonRef}
-                    onClose={() => setModalOpen(false)}
+            {modalOpen && (
+                <div
+                    className={`fixed ${sizes} inset-0 z-1000 overflow-hidden text-center`}
                 >
-                    <div className='min-h-screen px-4'>
-                        <Transition.Child
-                            as={Fragment}
-                            enter='ease-out duration-300'
-                            enterFrom='opacity-0'
-                            enterTo='opacity-100'
-                            leave='ease-in duration-200'
-                            leaveFrom='opacity-100 scale-100'
-                            leaveTo='opacity-0'
+                    <div className="min-h-screen flex justify-center px-4 bg-transparent">
+                        <span
+                            className="inline-block h-screen align-middle"
+                            aria-hidden="true"
                         >
-                            <Dialog.Overlay className='fixed inset-0 opacity-60' />
-                        </Transition.Child>
-                        <span className='inline-block h-screen align-middle' aria-hidden='true'>
                             &#8203;
                         </span>
-                        <Transition.Child
-                            as={Fragment}
-                            enter='ease-out duration-300'
-                            enterFrom='opacity-0 scale-95'
-                            enterTo='opacity-100 scale-100'
-                            leave='ease-in duration-200'
-                            leaveFrom='opacity-100 scale-100'
-                            leaveTo='opacity-0 scale-95'
-                        >
-                            {children}
-                        </Transition.Child>
-                        <div className='absolute right-5 top-5'>
-                            <button
-                                onClick={() => setModalOpen(false)}
-                                type='button'
-                                className='bg-dry rounded-full inline-flex transitions justify-center p-2 text-base font-medium text-text hover:bg-white '
-                            >
-                                <IoCloseSharp />
-                            </button>
+                        <div className={`inline-block ${width} align-middle`}>
+                            <div className="bg-white w-full rounded-lg text-left relative">
+                                {children}
+                                <button
+                                    onClick={closeModal}
+                                    type="button"
+                                    className="absolute top-0 right-0 mt-2 mr-2 border border-dry text-dry bg-main hover:bg-dry hover:text-main font-bold transitions rounded-full inline-flex justify-center p-2 text-base focus:outline-none focus:ring-2 focus:ring-offset-2 text-md"
+                                >
+                                    <IoCloseSharp />
+                                </button>
+                            </div>
                         </div>
                     </div>
-                </Dialog>
-            </Transition>
+                </div>
+            )}
         </>
-    )
+    );
 }
 
 export default MainModal;
