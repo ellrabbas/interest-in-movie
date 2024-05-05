@@ -85,7 +85,11 @@ const changePassword = asyncHandler(async (req, res) => {
 // Get all liked movies
 const getAllLikedMovies = asyncHandler(async (req, res) => {
     try {
-        const user = await User.findById(req.user._id).populate("likedMovies");
+        const user = await User.findById(req.user._id)
+            .populate({
+                path: 'likedMovies',
+                populate: { path: 'casts directors' }
+            });
         if (user) {
             res.status(200).json(user.likedMovies);
         } else {

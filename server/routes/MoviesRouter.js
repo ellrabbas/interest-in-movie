@@ -7,6 +7,7 @@ const {
     getTopRatedMovies,
     getRandomMovies,
     createMovieReview,
+    deleteMovieReview,
 } = require("../controllers/MoviesController");
 const { createMovie, updateMovie, deleteMovie, deleteAllMovies } = require("../controllers/AdminController");
 const router = express.Router();
@@ -20,6 +21,7 @@ router.get("/random/all", getRandomMovies);
 
 // ******** PRIVATE ROUTES ********
 router.post("/:id/reviews", authenticationToken, createMovieReview);
+router.delete("/:id/reviews", authenticationToken, deleteMovieReview);
 
 // ******** ADMIN ROUTES ********
 router.post("/", authenticationToken, admin, createMovie);
