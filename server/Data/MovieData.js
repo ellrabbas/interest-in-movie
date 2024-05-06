@@ -569,6 +569,55 @@ const MoviesData = [
       },
     ],
   },
+
+  {
+    name: "Bird Box",
+    desc: "Five years after an ominous unseen presence drives most of society to suicide, a survivor and her two children make a desperate bid to reach safety.",
+    titleImage:
+      "https://upload.wikimedia.org/wikipedia/en/b/bd/Bird_Box_%28film%29.png",
+    image:
+      "https://www.indiewire.com/wp-content/uploads/2018/12/Screen-Shot-2018-12-27-at-10.28.15-AM.png",
+    category: "Thriller",
+    language: "English",
+    year: 2018,
+    time: "2",
+    video: "https://www.youtube.com/watch?v=o2AsIXSh2xo",
+    rate: 7.2,
+    casts: [
+      {
+        fullName: "Sandra Bullock",
+        image:
+          "https://hips.hearstapps.com/hmg-prod/images/gettyimages-1074346390-square.jpg?crop=1xw:1.0xh;center,top&resize=640:*",
+      },
+      {
+        fullName: "Trevante Rhodes",
+        image:
+          "https://m.media-amazon.com/images/M/MV5BMzAwNDEyNTc3MV5BMl5BanBnXkFtZTgwNTEzMzc1MTI@._V1_FMjpg_UX1000_.jpg",
+      },
+      {
+        fullName: "John Malkovich",
+        image:
+          "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/John_Malkovich_KVIFF_2.jpg/1200px-John_Malkovich_KVIFF_2.jpg",
+      },
+      {
+        fullName: "Sarah Paulson",
+        image:
+          "https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/79647_v9_bb.jpg",
+      },
+      {
+        fullName: "Jacki Weaver",
+        image:
+          "https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Jacki_Weaver_-_Flickr_-_Eva_Rinaldi_Celebrity_and_Live_Music_Photographer_%281%29.jpg/640px-Jacki_Weaver_-_Flickr_-_Eva_Rinaldi_Celebrity_and_Live_Music_Photographer_%281%29.jpg",
+      },
+    ],
+    directors: [
+      {
+        fullName: "Susanne Bier",
+        image:
+          "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Susanne_Bier_2011_%28cropped%29.jpg/1200px-Susanne_Bier_2011_%28cropped%29.jpg",
+      },
+    ],
+  },
 ];
 
 module.exports = MoviesData;
