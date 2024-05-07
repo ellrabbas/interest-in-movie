@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const Axios = axios.create({
-    baseURL: "http://localhost:8095/api",
+  baseURL: "https://interest-in-movie-1.onrender.com/api",
 });
 
 export default Axios;

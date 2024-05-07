@@ -76,7 +76,7 @@ function Login() {
           onSubmit={handleSubmit(onSubmit)}
           className="w-[60%] md:w-[45%] lg:w-[35%] mt-5 flex flex-col gap-2 self-center md:pt-5 rounded-lg"
         >
-          <div className="flex-rows gap-1 text-2xl mb-3 ">
+          <div className="flex-rows gap-1 text-xl md:text-2xl mb-3 ">
             <span className="text-dry">Discover, </span>
             <p>your artist!</p>
           </div>
@@ -124,7 +124,7 @@ function Login() {
               </>
             )}
           </button>
-          <p className="text-center">
+          <p className="text-center text-xs md:text-md">
             Don't have an account?{" "}
             <Link
               to="/register"
